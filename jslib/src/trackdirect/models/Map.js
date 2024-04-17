@@ -28,6 +28,8 @@ trackdirect.models.Map = function (mapElementId, options) {
       .addTo(this);
   }
 
+  var maidenhead = L.maidenhead().addTo(this);
+
   this._initMap();
 };
 if (typeof google === "object" && typeof google.maps === "object") {
