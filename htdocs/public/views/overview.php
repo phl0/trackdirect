@@ -230,6 +230,12 @@
                 </div>
 
                 <div>
+                    <div class="overview-content-summary-hr-indent">Gridsquare:</div>
+                    <div id="overview-content-latest-gridsquare" class="overview-content-summary-cell-position" title="Maidenhead gridsquare (calculated from position)">
+                    </div>
+                </div>
+
+                <div>
                     <div class="overview-content-summary-hr-indent">Receive Time:</div>
                     <div id="position-timestamp" class="overview-content-summary-cell-time overview-content-summary-indent" title="Latest position receive time">
                         <?php if ($station->latestPacketId == $station->latestConfirmedPacketId && $station->latestPacketTimestamp == $station->latestConfirmedPacketTimestamp) : ?>
@@ -534,6 +540,8 @@
             if ($('#latest-timestamp-age').length && $('#latest-timestamp-age').html().trim() != '' && !isNaN($('#latest-timestamp-age').html().trim())) {
                 $('#latest-timestamp-age').html(moment(new Date(1000 * $('#latest-timestamp-age').html())).locale('en').fromNow());
             }
+
+             $('#overview-content-latest-gridsquare').html(trackdirect.models.Map.prototype._getMaidenheadLocatorFromGpsDecimal(<?php echo $station->latestConfirmedLatitude ?>, <?php echo $station->latestConfirmedLongitude ?>));
 
             if (window.trackdirect) {
                 <?php if ($station->latestConfirmedLatitude != null && $station->latestConfirmedLongitude != null) : ?>

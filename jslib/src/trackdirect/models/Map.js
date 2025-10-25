@@ -39,6 +39,7 @@ trackdirect.models.Map = function (mapElementId, options) {
         position: "bottomright",
       })
       .addTo(this);
+    var maidenhead = L.maidenhead().addTo(this);
     this._initMap();
   }
 };
